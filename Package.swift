@@ -10,15 +10,8 @@ let package = Package(
     ],
     products: [
         .library(name: "RealFlags", targets: ["RealFlags"]),
-        .library(name: "RealFlagsFirebase", targets: ["RealFlagsFirebase"])
     ],
-    dependencies: [
-        .package(
-            name: "Firebase",
-            url: "https://github.com/firebase/firebase-ios-sdk.git",
-            from: "9.0.0"
-        )
-    ],
+    dependencies: [],
     targets: [
         .target(
             name: "RealFlags",
@@ -30,14 +23,6 @@ let package = Package(
                 .process("Browser/Cells/FlagsBrowserDefaultCell.xib"),
                 .process("Browser/Cells/FlagsBrowserToggleCell.xib")
             ]
-        ),
-        .target(
-            name: "RealFlagsFirebase",
-            dependencies: [
-                "RealFlags",
-                .product(name: "FirebaseRemoteConfig", package: "Firebase"),
-            ],
-            path: "RealFlagsFirebase/Sources"
         ),
         .testTarget(
             name: "RealFlagsTests",
